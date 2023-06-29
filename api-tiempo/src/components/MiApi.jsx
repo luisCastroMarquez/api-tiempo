@@ -18,7 +18,7 @@ const MiApi = ({ onDataFetch }) => {
         const stations = response.data.data;
         onDataFetch(stations);
       } catch (error) {
-        setError("Error al obtener datos");
+        setError("Falla en la conexión... disculpe las molestias!.");
       } finally {
         setLoading(false);
       }

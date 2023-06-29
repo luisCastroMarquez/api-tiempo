@@ -18,8 +18,8 @@ const Cards = ({ data, limit }) => {
           <Card
             key={station.code}
             style={{
-              height: "350px",
-              width: "400px",
+              height: "300px",
+              width: "350px",
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
@@ -33,18 +33,18 @@ const Cards = ({ data, limit }) => {
                 alt="img"
               />
               <Card.Title>{station.name}</Card.Title>
-              <Card.Text>{station.temperature}°C</Card.Text>
-              <Card.Text>Pressure: {station.pressure_hpa} hPa</Card.Text>
+              <Card.Text> Actual: {station.temperature}°C</Card.Text>
+              <Card.Text>Presión: {station.pressure_hpa} hPa</Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
               <ListGroup.Item>
                 <h5>Pronóstico de ayer</h5>
               </ListGroup.Item>
               <ListGroup.Item>
-                minimun Temperature: {station.yesterday?.minimum?.temperature}°C
+                Minima Temperatura:{station.yesterday?.minimum?.temperature}°C
               </ListGroup.Item>
               <ListGroup.Item>
-                maximun Temperature: {station.yesterday?.maximun?.temperature}°C
+                Maxima Temperatura:{station.yesterday?.maximum?.temperature}°C
               </ListGroup.Item>
             </ListGroup>
           </Card>
