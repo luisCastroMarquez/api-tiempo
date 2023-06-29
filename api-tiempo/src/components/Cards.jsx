@@ -1,35 +1,47 @@
 import { Card, ListGroup, Alert } from "react-bootstrap";
+import cards from "../assets/img/cards.png";
 
 const Cards = ({ data, limit }) => {
   const cardsToRender = data.slice(0, limit);
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        flexWrap: "wrap",
+        gap: "30px",
+      }}
+    >
       {cardsToRender.length > 0 ? (
         cardsToRender.map((station) => (
           <Card
             key={station.code}
             style={{
-              height: "330px",
-              width: "380px",
+              height: "350px",
+              width: "400px",
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
               borderRadius: "7px",
             }}
           >
-            <CardBody>
+            <Card.Body>
               <img
                 src={cards}
-                style={{ height: "70px", margin: "20px " }}
+                style={{ height: "70px", margin: "20px" }}
                 alt="img"
               />
               <Card.Title>{station.name}</Card.Title>
               <Card.Text>{station.temperature}°C</Card.Text>
-            </CardBody>
+              <Card.Text>Pressure: {station.pressure_hpa} hPa</Card.Text>
+            </Card.Body>
             <ListGroup className="list-group-flush">
               <ListGroup.Item>
-                minumun Temperature: {station.yesterday?.minimum?.temperature}°C
+                <h5>Pronóstico de ayer</h5>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                minimun Temperature: {station.yesterday?.minimum?.temperature}°C
               </ListGroup.Item>
               <ListGroup.Item>
                 maximun Temperature: {station.yesterday?.maximun?.temperature}°C
@@ -38,7 +50,7 @@ const Cards = ({ data, limit }) => {
           </Card>
         ))
       ) : (
-        <Alert></Alert>
+        <Alert variant="danger">No se encontraron resultados.</Alert>
       )}
     </div>
   );

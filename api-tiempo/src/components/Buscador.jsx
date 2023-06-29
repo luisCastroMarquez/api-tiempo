@@ -15,7 +15,7 @@ const Buscador = ({ onSearch }) => {
       onSearch(searchTerm);
       setSearchTerm("");
     } else {
-      Alert("fallo");
+      Alert("fallo la busqueda");
     }
   };
 
@@ -25,7 +25,6 @@ const Buscador = ({ onSearch }) => {
       style={{
         height: "140px",
         display: "flex",
-        flexFlow: "row wrap",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",

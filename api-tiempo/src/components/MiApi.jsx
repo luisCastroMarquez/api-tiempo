@@ -8,18 +8,19 @@ const MiApi = ({ onDataFetch }) => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      setError(true);
+      setError(null);
 
       try {
-        const response = await fetch(
+        const response = await axios.get(
           "https://api.libreapi.cl/weather/stations"
         );
 
-        const station = await response.data.data;
-        onDataFetch(station);
-        onDataFetch(station);
+        const stations = response.data.data;
+        onDataFetch(stations);
       } catch (error) {
-        setError.error("Error al obtener datos", error);
+        setError("Error al obtener datos");
+      } finally {
+        setLoading(false);
       }
     };
 

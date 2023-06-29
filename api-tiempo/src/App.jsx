@@ -1,6 +1,6 @@
 import { useState } from "react";
-import MiApi from "./components/MiApi";
 import Buscador from "./components/Buscador";
+import MiApi from "./components/MiApi";
 import Cards from "./components/Cards";
 
 const App = () => {
@@ -27,12 +27,12 @@ const App = () => {
 
   return (
     <>
-      <div>
-        <h1>Tiempo</h1>
-        <Buscador onSearch={handleSearch} />
-        <MiApi onDataFetch={handleDataFetch} />
-        <Cards data={filteredData} limit={6} />
-      </div>
+      <h1 style={{ color: "blue", display: "flex", justifyContent: "center" }}>
+        App del Tiempo
+      </h1>
+      <Buscador onSearch={handleSearch} />
+      <MiApi onDataFetch={handleDataFetch} />
+      <Cards data={filteredData} limit={6} />
     </>
   );
 };
