@@ -1,9 +1,12 @@
 import { Card, ListGroup, Alert } from "react-bootstrap";
 import cards from "../assets/img/cards.png";
 
+//Componente de tarjetas que muestra la información de las estaciones climáticas.
 const Cards = ({ data, limit }) => {
+  // Obtiene las tarjetas a renderizar según el límite especificado.
   const cardsToRender = data.slice(0, limit);
 
+  // Renderiza las tarjetas si hay datos disponibles, de lo contrario muestra un mensaje de alerta.
   return (
     <div
       style={{
